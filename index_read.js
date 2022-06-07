@@ -27,3 +27,52 @@ app.get('/users', async(req, res) => {
     res.status(200).send(users)
 
 })
+
+app.get('/users/:id', async(req, res) => {
+    const id = parseInt(req.params.id);
+    const client = new MongoClient(uri);
+    await client.connect();
+    const users = await client.db('mydb').collection('users').findOne({ "id": id });
+    await client.close();
+    res.status(200).send({
+        "status": "ok",
+        "user": users
+    });
+})
+
+app.put('/users/update', async(req, res) => {
+    const user = req.body;
+    const id = user.id;
+    const client = new MongoClient(uri);
+    await client.connect();
+    await client.db('mydb').collection('users').updateOne({ "id": id }, {
+        "$set": {
+            fname: user.fname,
+            lname: user.lname,
+            username: user.username,
+            email: user.email,
+            avatar: user.avatar
+        }
+    });
+    await client.close();
+    res.status(200).send({
+        "status": "ok",
+        "message": "User with id=" + id + "is update",
+        "user": user
+    });
+})
+
+
+app.delete('/users/delete', async(req, res) => {
+
+    const id = req.body.id;
+    const client = new MongoClient(uri);
+    await client.connect();
+    await client.db('mydb').collection('users').deleteOne({ "id": id });
+    await client.close();
+    res.status(200).send({
+        "status": "ok",
+        "message": "User with id=" + id + "is delete",
+
+    });
+})
