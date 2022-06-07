@@ -34,4 +34,5 @@ app.post('/users/create', async(req, res) => {
         "message": "User with ID = " + user.id + " is created",
         "user": user
     });
+
 })
