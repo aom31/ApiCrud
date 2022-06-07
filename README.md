@@ -19,3 +19,10 @@ create api with express.js mongodb  check test on postman
 > npm init
 run with > nodemon namefile.js
 
+#test in POSTMAN
+
+1 use method post
+
+2 set url:http://localhost:port/.....anyroute
+
+3 in Body (row -JSON)
