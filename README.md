@@ -26,3 +26,4 @@ run with > nodemon namefile.js
 2 set url:http://localhost:port/.....anyroute
 
 3 in Body (row -JSON)
+![postman_testapi](https://user-images.githubusercontent.com/97218117/172418585-8a896c0d-88c7-46aa-9a0a-96aa55432eeb.png)
