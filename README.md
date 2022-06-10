@@ -7,6 +7,8 @@ create api with express.js mongodb  check test on postman
 -Postman
 ![Crudapi1](https://user-images.githubusercontent.com/97218117/173028976-7bc48258-7f2f-45df-b82e-29dde8044537.png)
 
+run with > nodemon index_readApi.js
+
 #create user on shell script on mongodb
 
 1 use admin
